@@ -1,12 +1,15 @@
 #!/bin/bash
-# jq must be installed
-
 JSON_BASE_URL="https://pypi.org/pypi"
 RAW_JSON=$(mktemp)
 
 OUTPUT_DIR="$PWD/output"
 
 mkdir $OUTPUT_DIR > /dev/null 2>&1
+
+if ! [[ $(which jq) ]]; then
+    echo "jq must be installed"
+    exit 1
+fi
 
 while IFS="" read -r PACKAGE || [ -n "$PACKAGE" ]
 do

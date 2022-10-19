@@ -8,3 +8,7 @@ The script will fetch the latest version available.
 
 At the end,
 all the files will be compressed into output.tgz
+
+# Requirements
+
+- jq
